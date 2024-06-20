@@ -44,7 +44,7 @@
                             <th scope="col">Description</th>
                             <th scope="col">Price</th>
                             <th scope="col">Created At</th>
-                            <th scope="col">Opertions</th>
+                            <th scope="col">Operations</th>
                           </tr>
                         </thead>
                         <tbody>
