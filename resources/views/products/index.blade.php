@@ -62,8 +62,13 @@
                                 <td>{{ $item->price }}</td>
                                 <td>{{ $item->created_at->format('d M, Y') }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-info">Edit</a>
-                                    <a href="#" class="btn btn-danger">Delete</a>
+                                    <a href="{{ route('products.edit', $item->p_id)}}" class="btn btn-info">Edit</a>
+                                    <a href="#" onclick="deleteProduct({{ $item->p_id }});" class="btn btn-danger">Delete</a>
+
+                                    <form id="delete-product-from-{{$item->p_id}}" action="{{ route('products.delete', $item->p_id)}}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                    </form>
                                 </td>
                               </tr> 
                             @endforeach
@@ -78,3 +83,12 @@
     </div>
   </body>
 </html>
+<script>
+    function deleteProduct(id)
+    {
+        if(confirm("Are you sure you want to delete product?"))
+        {
+            document.getElementById("delete-product-from-"+id).submit();
+        }
+    }
+</script>
